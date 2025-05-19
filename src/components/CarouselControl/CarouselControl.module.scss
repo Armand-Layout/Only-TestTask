@@ -1,0 +1,106 @@
+@use '../../styles/variables.scss' as *;
+
+.controls {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	// Часть для всех устройст
+	&__allDevice {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	// Числа
+	&__counter {
+		font-size: 14px;
+		line-height: 1em;
+		color: $BlackBlue;
+	}
+
+	// Кнопки
+	&__buttons {
+		display: flex;
+		gap: 20px;
+		align-items: center;
+		cursor: pointer;
+
+		&__item {
+			width: 50px;
+			height: 50px;
+			border: 1px solid rgba($BlackBlue, 0.5);
+			border-radius: 50%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&--disabled {
+				pointer-events: none;
+				opacity: 0.5;
+			}
+
+			// Иконки
+			.icon {
+				width: 10px;
+				height: 14px;
+				color: $BlackBlue;
+				transition: color 0.3s ease;
+
+				@media (max-width: 768px) {
+					width: 6px;
+					height: 8px;
+				}
+			}
+
+			&--disabled {
+				.icon {
+					color: rgba($BlackBlue, 1);
+				}
+			}
+		}
+	}
+
+	// Только для мобильных девайсов
+	&__mobile {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) { 
+	.controls {
+		display: flex;
+		justify-content: space-between;
+
+		&__buttons {
+			gap: 6px;
+			&__item {
+				width: 25px;
+				height: 25px;
+			}
+		}
+
+		&__mobile {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+	
+			&__item {
+				width: 6px;
+				height: 6px;
+				border-radius: 50%;
+				background: rgba($BlackBlue, 0.4);
+	
+				&--active {
+					background: rgba($BlackBlue, 1);
+				}
+			}
+		}
+
+		// Фейковый блок, для выравнивания точек по центру
+		&::after {
+			content: '';
+			width: 56px;
+		}
+	}
+}
