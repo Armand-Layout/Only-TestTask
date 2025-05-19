@@ -1,0 +1,103 @@
+@use '../../styles/variables.scss' as *;
+@use "@fontsource/bebas-neue" as *;
+
+.blocksCarousel {
+	display: flex;
+	align-items: center;
+	margin: 0 20px;
+	gap: 20px;
+
+	&__navButton {
+		background-color: $White;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		box-shadow: 0 0 15px 0 rgba($primaryColor, 0.1);
+		cursor: pointer;
+
+		.icon {
+			width: 10px;
+			height: 14px;
+			color: $primaryColor;
+		}
+
+		&_prev,
+		&_next {
+			&--hide {
+				.icon {
+					color: rgba($primaryColor, 0.3);
+				}
+			}
+		}
+	}
+
+	&__container {
+		width: calc(100% - 160px);
+		max-width: 1280px;
+		display: flex;
+		overflow: hidden;
+		user-select: none;
+		cursor: grab;
+	}
+
+	&__item {
+		flex: 0 0 33.3333%;
+		padding: 0 80px 0 0;
+		transition: opacity 0.5s ease;
+
+		&.fadeOut {
+			opacity: 0;
+			transition: opacity 0.5s ease;
+		}
+
+		&__name {
+			font-family: 'Bebas Neue', sans-serif;
+			font-size: 25px;
+			color: $primaryColor;
+			margin-bottom: 15px;
+		}
+
+		&__description {
+			font-size: 20px;
+			line-height: 1.5em;
+		}
+	}
+}
+
+
+@media (max-width: 768px) {
+	.blocksCarousel {
+		width: calc(100% - 40px);
+		border-top: 1px solid $Gray;
+		padding-top: $mainBlockPaddingMobile;
+
+		&__navButton {
+			display: none;
+		}
+
+		&__container {
+			width: 100%;
+		}
+
+		&__item {
+			flex: 0 0 70%;
+			padding: 0 25px 0 0;
+			opacity: 0.4;
+
+			&--active {
+				opacity: 1;
+			}
+
+			&__name {
+				font-size: 16px;
+			}
+
+			&__description {
+				font-size: 14px;
+			}
+		}
+	}
+}

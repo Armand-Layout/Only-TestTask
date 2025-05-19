@@ -1,4 +1,50 @@
-.sass-cache/
+# Зависимости
+/node_modules
+/.pnp
+.pnp.js
+
+# Сборка
+/dist
+/build
+
+# Тестирование
+/coverage
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Локальные env файлы
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Редакторы
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Кэш
+.cache/
+.npm/
+.eslintcache
+.stylelintcache
+
+# TypeScript
+*.tsbuildinfo
+
+# Временные файлы
+*.log
+*.tmp
+*.temp
+
+# Файлы сборки
+*.js.map
 *.css.map
-*.sass.map
 *.scss.map

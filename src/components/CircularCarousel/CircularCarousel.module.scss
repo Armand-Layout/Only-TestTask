@@ -1,0 +1,82 @@
+@use '../../styles/variables.scss' as *;
+
+.carouselContainer {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.carousel {
+	width: 530px;
+	height: 530px;
+	border: 1px solid rgba($BlackBlue, 0.2);
+	position: relative;
+	border-radius: 50%;
+	transition: transform 1s ease-in-out;
+}
+	
+.childWrapper {
+	position: absolute;
+	width: 0;
+	height: 0;
+	overflow: visible;
+	transition: transform 1s ease-in-out;
+}
+	
+.child {
+	width: 56px;
+	height: 56px;
+	left: -28px;
+	top: -28px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__index {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: $BlackBlue;
+		color: $background;
+		font-size: 20px;
+		font-weight: 400;
+		width: 6px;
+		height: 6px;
+		border-radius: 50%;
+		border: 3px solid $BlackBlue;
+		transition: all 0.3s ease-in-out;
+		overflow: hidden;
+		cursor: pointer;
+	}
+
+	&__name {
+		display: block;
+		font-size: 20px;
+		font-weight: 700;
+		position: absolute;
+		left: 76px;
+		top: 50%;
+		transform: translateY(-50%);
+		opacity: 1;
+		transition: opacity 0.2s;
+		white-space: nowrap;
+	}
+
+	&--active,
+	&:hover {
+		.child__index {
+			background: $background;
+			color: $BlackBlue;
+			border: 1px solid rgba($BlackBlue, 0.2);
+			width: 56px;
+			height: 56px;
+		}
+	}
+
+	&:not(.visible-name) {
+		.child__name {
+			opacity: 0;
+		}
+	}
+}
